@@ -1,0 +1,6 @@
+<select name="" id="services_all" class="custom-select" autofocus="true" required="true">
+  <option selected>Choose...</option>
+  <% @search.each do |service| %>
+    <option value="<%= service.id %>"><%= service.service %></option>
+  <% end %>
+</select>

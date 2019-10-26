@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  symbol: MyString
+  name: MyString
+  type: 
+  region: MyString
+  currency: MyString
+  open: MyString
+  high: MyString
+  low: MyString
+  price: MyString
+  previous_close: MyString
+  change: MyString
+  change_percent: MyString
+
+two:
+  symbol: MyString
+  name: MyString
+  type: 
+  region: MyString
+  currency: MyString
+  open: MyString
+  high: MyString
+  low: MyString
+  price: MyString
+  previous_close: MyString
+  change: MyString
+  change_percent: MyString

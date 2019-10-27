@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_234803) do
+ActiveRecord::Schema.define(version: 2019_10_26_064310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "news", force: :cascade do |t|
+    t.string "source"
+    t.string "author"
+    t.string "title"
+    t.string "description"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "news_stocks", id: false, force: :cascade do |t|
+    t.bigint "stock_id", null: false
+    t.bigint "news_id", null: false
+  end
+
+  create_table "portfolios", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "portfolios_stocks", id: false, force: :cascade do |t|
+    t.bigint "portfolio_id", null: false
+    t.bigint "stock_id", null: false
+  end
+
+  create_table "portfolios_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "portfolio_id", null: false
+  end
 
   create_table "stocks", force: :cascade do |t|
     t.string "symbol"

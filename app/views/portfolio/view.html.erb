@@ -1,0 +1,21 @@
+<h1>Portfolio#view</h1>
+
+<div id="portfolio_view">
+<script>
+
+    let portfolioID = +<%= @portfolios.id %>;
+
+    fetch(`/portfolio/stocks/${portfolioID}`)
+        .then((portString) => {
+            return portString.json();
+        })
+        .then((portObj) => {
+            for (let i = 0; i < portObj.length; i++)
+            {
+                $('body').append(`<p>${portObj[i].symbol}</p>`)
+                $('body').append(`<p>${portObj[i].name}</p>`)
+            }
+        });
+
+</script>
+</div>

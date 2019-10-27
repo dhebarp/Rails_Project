@@ -1,9 +1,19 @@
 <h1>Stocks#new</h1>
 
-
-<div>
+<%= form_with(url: create_stocks_path, method: "post") do %>
 <ul>
-  <li>Stock Name: <%= @stock[:symbol]%> </li>
+  <li><%= f.text_field @stock[:symbol]%></li>
+  <li>Stock Name: <%= @search_form[:search_name]%> </li>
+  <li>Type: <%= @search_form[:search_equity_type]%> </li>
+  <li>Region: <%= @search_form[:search_region]%> </li>
+  <li>Currency: <%= @search_form[:search_currency]%> </li>
+  <li>Open Price: <%= @stock[:open_price]%> </li>
+  <li>High Price: <%= @stock[:high_price]%> </li>
+  <li>Low Price: <%= @stock[:low_price]%> </li>
   <li>Quote Price: <%= @stock[:price]%> </li>
+  <li>Previous Close: <%= @stock[:previous_close]%> </li>
+  <li>Change: <%= @stock[:change]%> </li>
+  <li>Percentage: <%= @stock[:change_percent] %> </li>
 </ul>
-</div>
+  <button type="submit">Add Stock</button>
+<% end %>

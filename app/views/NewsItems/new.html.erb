@@ -1,16 +1,15 @@
-<h1>News#new</h1>
-</head>
-<body>
-<div id="curve_chart" style="width: 900px; height: 500px"></div>
-<div class="card" style="width: 18rem;">
+<main>
+  <div class="overflow-auto">
+<div class="card" style="width: 25rem;">
   <div class="card-body">
     <% @articles.each do |article| %>
       <h3 class="card-title"><%= article["source"]["name"] %></h3>
       <h4 class="card-subtitle mb-2 text-muted"><%= article["author"]%></h4>
       <p class="card-text"><%= article["description"]%></p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+      <a href="#" class="card-link">View Article</a>
+      <a href="#" class="card-link">Add to Dashboard</a>
     <% end %>
+ </div>
   </div>
-</div>
-</body>
+  </div>
+</main>

@@ -1,13 +1,20 @@
 class PortfolioController < ApplicationController
   def view
     @portfolios = Portfolio.find(params[:id])
-    @stocks = @portfolios.stock.all
+    @stocks = @portfolios.stocks.all
+
+    @symbol = params[:symbol]
   end
 
     def portfolio_stocks
       portfolio = Portfolio.find(params[:id])
-      stocks = portfolio.stock.all
+      @stocks = portfolio.stocks.all
 
-      render json: stocks
+      render json: @stocks
     end
+
+  def stocks_new
+    @symbol = params[:symbol]
+    @stocks = params[:stocks]
+  end
   end

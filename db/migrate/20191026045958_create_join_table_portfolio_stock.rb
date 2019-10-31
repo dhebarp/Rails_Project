@@ -1,8 +1,9 @@
 class CreateJoinTablePortfolioStock < ActiveRecord::Migration[6.0]
   def change
     create_join_table :portfolios, :stocks do |t|
-      # t.index [:portfolio_id, :stock_id]
-      # t.index [:stock_id, :portfolio_id]
+      t.references :portfolios, index: true, foreign_key: true
+      t.references :stocks, index: true, foreign_key: true
+      t.timestamps null: false
     end
   end
 end

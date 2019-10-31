@@ -1,19 +1,31 @@
 <h1>Stocks#new</h1>
 
-<%= form_with(url: create_stocks_path, method: "post") do %>
-<ul>
-  <li><%= f.text_field @stock[:symbol]%></li>
-  <li>Stock Name: <%= @search_form[:search_name]%> </li>
-  <li>Type: <%= @search_form[:search_equity_type]%> </li>
-  <li>Region: <%= @search_form[:search_region]%> </li>
-  <li>Currency: <%= @search_form[:search_currency]%> </li>
-  <li>Open Price: <%= @stock[:open_price]%> </li>
-  <li>High Price: <%= @stock[:high_price]%> </li>
-  <li>Low Price: <%= @stock[:low_price]%> </li>
-  <li>Quote Price: <%= @stock[:price]%> </li>
-  <li>Previous Close: <%= @stock[:previous_close]%> </li>
-  <li>Change: <%= @stock[:change]%> </li>
-  <li>Percentage: <%= @stock[:change_percent] %> </li>
-</ul>
+<%= form_tag(url: 'create_stocks_path', method: "post") do %>
+  <ul>
+    <li>Symbol:<%= @stock[:symbol] %></li>
+    <input type="hidden" name="symbol" value="<%= @stock[:symbol] %>">
+    <li>Stock Name: <%= @search_form[:search_name] %> </li>
+     <input type="hidden" name="name" value="<%= @search_form[:search_name] %>">
+    <li>Type: <%= @search_form[:search_equity_type] %> </li>
+    <input type="hidden" name="stock_type" value="<%= @search_form[:search_equity_type] %>">
+    <li>Region: <%= @search_form[:search_region] %> </li>
+    <input type="hidden" name="region" value="<%= @search_form[:search_region] %>">
+    <li>Currency: <%= @search_form[:search_currency] %> </li>
+    <input type="hidden" name="currency" value="<%= @search_form[:search_currency] %>">
+    <li>Open Price: <%= @stock[:open_price] %> </li>
+    <input type="hidden" name="open" value="<%= @stock[:open_price] %>">
+    <li>High Price: <%= @stock[:high_price] %> </li>
+    <input type="hidden" name="high" value="<%= @stock[:high_price] %>">
+    <li>Low Price: <%= @stock[:low_price] %> </li>
+    <input type="hidden" name="low" value="<%= @stock[:low_price] %>">
+    <li>Quote Price: <%= @stock[:price] %> </li>
+    <input type="hidden" name="price" value="<%= @stock[:price] %>">
+    <li>Previous Close: <%= @stock[:previous_close] %> </li>
+    <input type="hidden" name="previous_close" value="<%= @stock[:previous_close] %>">
+    <li>Change: <%= @stock[:change] %> </li>
+    <input type="hidden" name="change" value="<%= @stock[:change] %>">
+    <li>Percentage: <%= @stock[:change_percent] %> </li>
+    <input type="hidden" name="change_percent" value="<%= @stock[:change_percent] %>">
+  </ul>
   <button type="submit">Add Stock</button>
 <% end %>

@@ -36,18 +36,23 @@ class StocksController < ApplicationController
   def create
     stock1 = Stock.new
     stock1.symbol = params[:symbol]
-    stock1.name = params[:search_name]
-    stock1.stock_type = params[:search_equity_type]
-    stock1.region = params[:search_region]
-    stock1.currency = params[:search_currency]
-    stock1.open = params[:open_price]
-    stock1.high = params[:high_price]
+    stock1.name = params[:name]
+    stock1.stock_type = params[:stock_type]
+    stock1.region = params[:region]
+    stock1.currency = params[:currency]
+    stock1.open = params[:open]
+    stock1.high = params[:high]
+    stock1.low = params[:low]
     stock1.price = params[:price]
     stock1.previous_close = params[:previous_close]
     stock1.change = params[:change]
     stock1.change_percent = params[:change_percent]
     stock1.save
-    redirect_to 'new_stocks'
+
+    portfolio1 = Portfolio.find(params[:id])
+    portfolio1.save
+    portfolio1.stocks << stock1
+    redirect_to '/portfolio/:id'
   end
 
   def update

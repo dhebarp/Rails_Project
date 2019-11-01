@@ -16,10 +16,10 @@ Rails.application.routes.draw do
 
   # stock API routes
   get '/portfolio/:id' => 'portfolio#view', as: 'view_portfolio'
-  get '/portfolio/:id/stocks' => 'stocks#new', as: 'new_stocks'
+  get '/portfolio/:id/stocks/' => 'stocks#new', as: 'new_stocks'
   post '/portfolio/:id/stocks/' => 'stocks#create', :as => 'create_stocks'
-  #post 'portfolio/:id/stocks/:symbol' => 'portfolio#stocks_new', :as => 'select_portfolio'
 
   # NEWS api routes
-  get '/news_items/:title' => 'news_items#new'
+  get '/articles/:' => 'articles#new'
+  post '/articles/:title' => 'articles#create', :as => 'add_news'
 end

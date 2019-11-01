@@ -52,7 +52,7 @@ class StocksController < ApplicationController
     portfolio1 = Portfolio.find(params[:id])
     portfolio1.save
     portfolio1.stocks << stock1
-    redirect_to '/portfolio/:id'
+    redirect_to controller: 'portfolio', action: 'view'
   end
 
   def update

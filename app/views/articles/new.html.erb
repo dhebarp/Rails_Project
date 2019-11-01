@@ -1,0 +1,23 @@
+<div class="overflow-auto">
+<div class="card" style="width: 25rem;">
+  <div class="card-body">
+    <% @articles.each do |article| %>
+<%= form_tag(url: 'add_news_path', method: 'post') do %>
+        <h3 class="card-title"><%= article["title"] %></h3>
+        <input type="hidden" name="source_title" value="<%= article["title"] %>">
+      <h4 class="card-subtitle mb-2"><%= article["source"]["name"] %></h4>
+        <input type="hidden" name="source_name" value="<%= article["source"]["name"] %>">
+      <h5 class="card-subtitle mb-2 text-muted"><%= article["author"]%></h5>
+        <input type="hidden" name="author" value="<%= article["author"] %>">
+      <p class="card-text"><%= article["description"]%></p>
+        <input type="hidden" name="description" value="<%= article["description"] %>">
+        <input type="hidden" name="url" value="<%= article["url"] %>">
+        <button type="submit" class="card-link">Add to Dashboard</button>
+      <% end %>
+      <%= form_with(url: article["url"], method: "get", local: false) do %>
+      <button><a href= <%= article["url"] %> class="card-link" target="_blank">View Article</a></button>
+      <% end %>
+    <% end %>
+ </div>
+  </div>
+  </div>

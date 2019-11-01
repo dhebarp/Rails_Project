@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2019_10_26_064310) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "news", force: :cascade do |t|
+  create_table "articles", force: :cascade do |t|
     t.string "source"
     t.string "author"
     t.string "title"
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 2019_10_26_064310) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "news_stocks", id: false, force: :cascade do |t|
+  create_table "articles_stocks", id: false, force: :cascade do |t|
     t.bigint "stock_id", null: false
-    t.bigint "news_id", null: false
+    t.bigint "article_id", null: false
   end
 
   create_table "portfolios", force: :cascade do |t|
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_10_26_064310) do
   create_table "stocks", force: :cascade do |t|
     t.string "symbol"
     t.string "name"
-    t.string "type"
+    t.string "stock_type"
     t.string "region"
     t.string "currency"
     t.string "open"

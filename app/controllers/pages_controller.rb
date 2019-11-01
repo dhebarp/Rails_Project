@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
-  before_acion :authorize
+  before_action :authorize
 
   def welcome
   end
   def dashboard
   end
-end
+  end

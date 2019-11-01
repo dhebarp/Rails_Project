@@ -1,15 +1,12 @@
-<h1><%= @portfolios.name %></h1>
+<h1><%= @portfolios["name"] %></h1>
 <main>
   <%= form_with(url: new_stocks_path(@portfolios.id), method: "get", local:true) do %>
         <input type="text" name="symbol" placeholder="Stock Name">
-    <% puts "blah" %>
     <button type="submit">Add Stock</button>
   <% end %>
   <br>
   <% if @portfolios.stocks.all %>
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
   <table class="table table-striped">
     <thead>
     <tr>
@@ -42,4 +39,31 @@
 </div>
   </div>
   </div>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+      import * as google from "chartkick";
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+              ['Year', 'Sales', 'Expenses'],
+              ['2004',  1000,      400],
+              ['2005',  1170,      460],
+              ['2006',  660,       1120],
+              ['2007',  1030,      540]
+          ]);
+
+          var options = {
+              title: 'Company Performance',
+              curveType: 'function',
+              legend: { position: 'bottom' }
+          };
+
+          var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+          chart.draw(data, options);
+      }
+  </script>
       </main>

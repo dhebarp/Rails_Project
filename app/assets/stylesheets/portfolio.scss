@@ -1,3 +1,13 @@
 // Place all the styles related to the portfolio controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.container{
+  display: flex;
+  background: whitesmoke;
+  flex-direction: row;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+  float: left;
+}

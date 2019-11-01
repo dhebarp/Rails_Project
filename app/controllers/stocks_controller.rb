@@ -53,7 +53,7 @@ class StocksController < ApplicationController
     portfolio1.save
     portfolio1.stocks << stock1
     redirect_to controller: 'portfolio', action: 'view'
-  end
+    end
 
   def update
   end

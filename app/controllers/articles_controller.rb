@@ -14,6 +14,6 @@ class ArticlesController < ApplicationController
     news1.description = params[:stock_type]
     news1.url = params[:stock_type]
     news1.save
-    redirect_to '/'
+    redirect_to "/articles/:title"
   end
 end

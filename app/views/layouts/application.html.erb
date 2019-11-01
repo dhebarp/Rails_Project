@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Portofilio Manager</title>
+    <title>Portfolio Manager</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
   </head>
   <body>
   <% if current_user %>
@@ -19,13 +19,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link"><%= link_to 'home', '/' %><span class="sr-only">(current)</span></a>
+          <button class="btn btn-outline-success my-2 my-sm-0"><a class="nav-link"><%= link_to 'home', '/' %><span class="sr-only">(current)</span></a></button>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><%= current_user.name %></a>
+          <button class="btn btn-outline-success my-2 my-sm-0"><a class="nav-link" href="#"><%= current_user.name %></a></button>
         </li>
         <li class="nav-item">
-          <a class="nav-link">  <%= link_to "Logout", '/logout' %> </a>
+          <button class="btn btn-outline-success my-2 my-sm-0"><a class="nav-link">  <%= link_to "Logout", '/logout' %> </a></button>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -40,6 +40,7 @@
       <%= link_to 'home', '/' %> | <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
     <% end %>
       <%= yield %>
+  </body>
     <footer class="page-footer font-small blue pt-4">
       <!-- Footer Links -->
       <div class="container-fluid text-center text-md-left">
@@ -120,5 +121,4 @@
       </div>
       <!-- Copyright -->
     </footer>
-  </body>
 </html>

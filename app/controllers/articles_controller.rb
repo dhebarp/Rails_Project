@@ -9,11 +9,12 @@ class ArticlesController < ApplicationController
   def create
     news1 = Article.new
     news1.source = params[:source_name]
-    news1.author = params[:name]
+    news1.author = params[:author]
     news1.title = params[:source_title]
-    news1.description = params[:stock_type]
-    news1.url = params[:stock_type]
+    news1.description = params[:description]
+    news1.url = params[:url]
     news1.save
-    redirect_to "/articles/:title"
+    redirect_to home_path
+
   end
 end

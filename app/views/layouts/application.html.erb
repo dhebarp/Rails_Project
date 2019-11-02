@@ -4,10 +4,10 @@
     <title>Portfolio Manager</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
   <% if current_user %>
@@ -40,7 +40,6 @@
       <%= link_to 'home', '/' %> | <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
     <% end %>
       <%= yield %>
-  </body>
     <footer class="page-footer font-small blue pt-4">
       <!-- Footer Links -->
       <div class="container-fluid text-center text-md-left">
@@ -118,7 +117,10 @@
       <div class="footer-copyright text-center py-3">© 2018 Copyright:
         <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
       </div>
+    </footer>
       </div>
+    </div>
       <!-- Copyright -->
     </footer>
+  </body>
 </html>

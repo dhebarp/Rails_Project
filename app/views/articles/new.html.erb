@@ -12,7 +12,7 @@
       <p class="card-text"><%= article["description"]%></p>
         <input type="hidden" name="description" value="<%= article["description"] %>">
         <input type="hidden" name="url" value="<%= article["url"] %>">
-        <button type="submit" class="card-link">Add to Dashboard</button>
+        <button type="submit"><a class="card-link" target="_blank">Add to Dashboard</a></button>
       <% end %>
       <%= form_with(url: article["url"], method: "get", local: false) do %>
       <button><a href= <%= article["url"] %> class="card-link" target="_blank">View Article</a></button>

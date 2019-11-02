@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   post '/portfolio/:id/stocks/' => 'stocks#create', :as => 'create_stocks'
 
   # NEWS api routes
-  get '/articles/:title' => 'articles#new'
-  post '/articles/:title/' => 'articles#create', :as => 'add_news'
+  get '/articles/:title' => 'articles#new', as: 'view_news'
+  post '/articles/:title' => 'articles#create', :as => 'add_news'
 end

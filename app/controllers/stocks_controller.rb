@@ -34,26 +34,30 @@ class StocksController < ApplicationController
   end
 
   def create
-    stock1 = Stock.new
-    stock1.symbol = params[:symbol]
-    stock1.name = params[:name]
-    stock1.stock_type = params[:stock_type]
-    stock1.region = params[:region]
-    stock1.currency = params[:currency]
-    stock1.open = params[:open]
-    stock1.high = params[:high]
-    stock1.low = params[:low]
-    stock1.price = params[:price]
-    stock1.previous_close = params[:previous_close]
-    stock1.change = params[:change]
-    stock1.change_percent = params[:change_percent]
-    stock1.save
-
-    portfolio1 = Portfolio.find(params[:id])
-    portfolio1.save
-    portfolio1.stocks << stock1
-    redirect_to controller: 'portfolio', action: 'view'
+    current_stock = Stock.find_by(symbol: params[:symbol])
+    if current_stock.nil?
+      stock1 = Stock.new
+      stock1.symbol = params[:symbol]
+      stock1.name = params[:name]
+      stock1.stock_type = params[:stock_type]
+      stock1.region = params[:region]
+      stock1.currency = params[:currency]
+      stock1.open = params[:open]
+      stock1.high = params[:high]
+      stock1.low = params[:low]
+      stock1.price = params[:price]
+      stock1.previous_close = params[:previous_close]
+      stock1.change = params[:change]
+      stock1.change_percent = params[:change_percent]
+      stock1.save
     end
+    portfolio1 = Portfolio.find(params[:id])
+    if portfolio1.nil?
+      portfolio1.save
+      current_stock.nil? ? portfolio1.stocks << stock1 : portfolio1.stocks << current_stock
+    end
+    redirect_to controller: 'portfolio', action: 'view'
+  end
 
   def update
   end
